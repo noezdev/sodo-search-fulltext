@@ -13,7 +13,7 @@ export default class SearchIndex {
             tokenize: 'forward',
             document: {
                 id: 'id',
-                index: ['title', 'excerpt'],
+                index: ['title', 'excerpt', 'html'],
                 store: true
             }
         });
@@ -59,7 +59,7 @@ export default class SearchIndex {
     async init() {
         let posts = await this.api.posts.browse({
             limit: '10000',
-            fields: 'id,slug,title,excerpt,url,updated_at,visibility',
+            fields: 'id,slug,title,html,excerpt,url,updated_at,visibility',
             order: 'updated_at DESC'
         });
 
